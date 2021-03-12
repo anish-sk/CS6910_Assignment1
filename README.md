@@ -1,6 +1,6 @@
 # Assignment 1 : Training a feedforward neural network
 
-** NOTE :** The program is written in a modular manner, with each logically separate unit of code written as functions.  
+**NOTE :** The program is written in a modular manner, with each logically separate unit of code written as functions.  
 
 ### Requirements
 All the python libraries required to run the program are listed in `requirements.txt`    
@@ -41,7 +41,7 @@ Use `pip install -r requirements.txt` to install the dependencies. **(Use python
   ```
   train_stats -- List of tuple (training accuracy, average training loss) of entire dataset after every epoch of training
   valid_stats -- List of tuple (validation accuracy, average validation loss) of entire dataset after every epoch of training
-  test_stats -- Tuple (test accuracy, average test loss) of entire dataset for the trained model
+  test_stat -- Tuple (test accuracy, average test loss) of entire dataset for the trained model
   ```
   All the hyparameters, loss and accuracy are also logged in **WANDB**.
 - In order to run a new sweep in **WANDB**, run :
@@ -90,4 +90,4 @@ Use `pip install -r requirements.txt` to install the dependencies. **(Use python
   }
   ```
   The above dictionary can be changed according to the need and used to obtain a different sweep.
-- ** NOTE : ** Always runs the cells in order, otherwise incorrect results may be obtained
+- **NOTE :** Always runs the cells in order, otherwise incorrect results may be obtained
