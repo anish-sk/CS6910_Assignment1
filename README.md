@@ -1,6 +1,6 @@
 # Assignment 1 : Training a feedforward neural network
 
-**NOTE :** The program is written in a modular manner, with each logically separate unit of code written as functions.  
+** NOTE :** The program is written in a modular manner, with each logically separate unit of code written as functions.  
 
 ### Requirements
 All the python libraries required to run the program are listed in `requirements.txt`    
@@ -50,5 +50,44 @@ Use `pip install -r requirements.txt` to install the dependencies. **(Use python
   wandb.agent(sweep_id, lambda : sweep_wrapper(trainX, trainY, validX, validY, testX, testY, loss))
   ```
   where the arguments take the same meaning as above and the sweep with all metrics and configurations is logged in **WANDB**.
-  `sweep_config` argument
-- 
+  The `sweep_config` argument is a dictionary containing the method of search, goal to optimize, and parameters to sweep. An example from the code itself is :
+  ```python
+  sweep_config = {
+      'method': 'bayes',                   # Possible search : grid, random, bayes
+      'metric': {
+        'name': 'validation_accuracy',
+        'goal': 'maximize'   
+      },
+      'parameters': {
+          'no_epochs': {
+              'values': [5, 10]
+          },
+          'no_hidden_layers': {
+              'values': [3, 4, 5]
+          },
+          'size_hidden_layer': {
+              'values': [32, 64, 128]
+          },
+          'weight_decay' :{
+              'values': [0, 0.0005, 0.005]
+          },
+          'learning_rate': {
+              'values': [1e-1, 1e-2, 1e-3]
+          },
+          'optimizer': {
+              'values': ['sgd', 'momentum', 'nesterov', 'rmsprop', 'adam', 'nadam' ]
+          },
+          'batch_size': {
+              'values': [16, 32, 64]
+          },
+          'weight_initialisation': {
+              'values': ['random', 'xavier']
+          },
+          'activation_fn': {
+              'values': ['relu', 'tanh', 'sigmoid']
+          }
+      }
+  }
+  ```
+  The above dictionary can be changed according to the need and used to obtain a different sweep.
+- ** NOTE : ** Always runs the cells in order, otherwise incorrect results may be obtained
