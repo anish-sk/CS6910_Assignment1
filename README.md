@@ -2,9 +2,53 @@
 
 **NOTE :** The program is written in a modular manner, with each logically separate unit of code written as functions.  
 
-#### Requirements
+### Requirements
 All the python libraries required to run the program are listed in `requirements.txt`    
 Use `pip install -r requirements.txt` to install the dependencies. **(Use python 3.7 or lower)**
 
-#### Steps to run the program
-The  
+### Steps to run the program
+- The program can be run in Google colab or jupyter notebook.
+- The solution to each question is made in the form of a couple of function calls (which are clearly mentioned with question numbers in comments) and commented out in the program so that the user can choose which parts to run and evaluate.
+- In order to run the solution for a particular question, uncomment that part and run the notebook.
+- By default, the solution for question 7, to train the neural network for the configuration giving best accuracy and plotting it's confusion matrix is uncommented.
+- In order to train a new neural network on custom configurations and dataset, call :
+  ```python
+  train_wrapper(trainX, trainY, optimizer, batch_size, learning_rate, max_epochs, no_hidden_layers, 
+                size_hidden_layer, weight_initialisation, activation, loss, weight_decay = 0,
+                validX = None, validY = None, testX = None, testY = None, regularisation = 'L2')
+  ```
+  where the arguments are :
+  ```
+  trainX -- (matrix) Input training data matrix with data as column vectors
+  trainY -- (matrix) True training output data matrix with data as column vectors
+  optimizer -- (string) Optimisation function. Takes values only in ['sgd', 'momentum', 'nesterov', 'rmsprop', 'adam', 'nadam']
+  batch_size -- (int) Batch size for training
+  learning_rate -- (float) Hyperparameter eta for gradient terms in training
+  max_epochs -- (int) Maximum number of epochs to train the neural network
+  no_hidden_layers -- (int) Number of hidden layers in the neural network
+  size_hidden_layer -- (int) Number of neurons in each hidden layer
+  weight_initialisation -- (string) Weight initialisation method. Takes values only in ['random', 'xavier']
+  activation -- (string) Activation function for each neuron. Takes values only in ['relu', 'sigmoid', 'tanh]
+  loss -- (string) Loss function used. Takes values only in ['cross-entropy', 'squared-error']
+  weight_decay -- (float) Hyperparameter lambda for regularisation term in training
+  validX -- (matrix) Input validation data matrix with data as column vectors
+  validY -- (matrix) True validation output data matrix with data as column vectors
+  testX -- (matrix) Input testing data matrix with data as column vectors
+  testY -- (matrix) True testing output data matrix with data as column vectors
+  regularisation -- (string) Type of regularisation used. Takes values only in ['L2', 'L1']
+  ```
+  and the function returns :
+  ```
+  train_stats -- List of tuple (training accuracy, average training loss) of entire dataset after every epoch of training
+  valid_stats -- List of tuple (validation accuracy, average validation loss) of entire dataset after every epoch of training
+  test_stats -- Tuple (test accuracy, average test loss) of entire dataset for the trained model
+  ```
+  All the hyparameters, loss and accuracy are also logged in **WANDB**.
+- In order to run a new sweep in **WANDB**, run :
+  ```python
+  sweep_id = wandb.sweep(sweep_config, entity="abisheks", project="assignment1")
+  wandb.agent(sweep_id, lambda : sweep_wrapper(trainX, trainY, validX, validY, testX, testY, loss))
+  ```
+  where the arguments take the same meaning as above and the sweep with all metrics and configurations is logged in **WANDB**.
+  `sweep_config` argument
+- 
