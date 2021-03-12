@@ -1,0 +1,24 @@
+{
+    "os": "Darwin-19.6.0-x86_64-i386-64bit",
+    "python": "3.7.9",
+    "heartbeatAt": "2021-03-12T10:46:56.981566",
+    "startedAt": "2021-03-12T10:46:50.506132",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/Users/abishek_programming/Library/Jupyter/runtime/kernel-7860697f-e865-4346-9fd3-47d35b0b1299.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/anish-sk/CS6910_Assignments.git",
+        "commit": "0e8ea8f55c5ba6e24855a09f8b65063994aefe5a"
+    },
+    "email": "abisubramanya27@gmail.com",
+    "root": "/Users/abishek_programming/Desktop/CS6910_Assignments",
+    "host": "Abisheks-MacBook-Pro.local",
+    "username": "abishek_programming",
+    "executable": "/Users/abishek_programming/Desktop/CS6910_Assignments/venv/bin/python"
+}
