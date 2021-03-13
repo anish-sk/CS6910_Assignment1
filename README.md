@@ -7,7 +7,7 @@ All the python libraries required to run the program are listed in `requirements
 Use `pip install -r requirements.txt` to install the dependencies. **(Use python 3.7 or lower)**
 
 ### Steps to run the program
-- The program can be run in Google colab or jupyter notebook.
+- The code is done in a Google colab notebook and stored in the repository in `src/Assignment1.ipynb`. It can be opened and run in Google colab or jupyter notebook.
 - The solution to each question is made in the form of a couple of function calls (which are clearly mentioned with question numbers in comments) and commented out in the program so that the user can choose which parts to run and evaluate.
 - In order to run the solution for a particular question, uncomment that part and run the notebook.
 - By default, the solution for question 7, to train the neural network for the configuration giving best accuracy and plotting it's confusion matrix is uncommented.
