@@ -49,7 +49,7 @@ Use `pip install -r requirements.txt` to install the dependencies. **(Use python
   sweep_id = wandb.sweep(sweep_config, entity="abisheks", project="assignment1")
   wandb.agent(sweep_id, lambda : sweep_wrapper(trainX, trainY, validX, validY, testX, testY, loss))
   ```
-  where the arguments take the same meaning as above and the sweep with all metrics and configurations is logged in **WANDB**.
+  where the arguments to `sweep_wrapper` take the same meaning as in  `train_wrapper` above. The sweep with all metrics and configurations is logged in **WANDB**.
   The `sweep_config` argument is a dictionary containing the method of search, goal to optimize, and parameters to sweep. An example from the code itself is :
   ```python
   sweep_config = {
@@ -89,5 +89,5 @@ Use `pip install -r requirements.txt` to install the dependencies. **(Use python
       }
   }
   ```
-  The above dictionary can be changed according to the need and used to obtain a different sweep.
-- **NOTE :** Always runs the cells in order, otherwise incorrect results may be obtained
+  The above dictionary can be changed according to needs and used to obtain a different sweep.
+- **NOTE :** Always run the cells in order, otherwise incorrect results may be obtained
